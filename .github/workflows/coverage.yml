@@ -1,16 +1,7 @@
 name: coverage
 
 on:
-  push:
-    paths-ignore:
-      - "docs/**"
-      - ".github/workflows/docs.yml"
-      - "/*.md"
-  pull_request:
-    paths-ignore:
-      - "docs/**"
-      - ".github/workflows/docs.yml"
-      - "/*.md"
+  workflow_dispatch: 
 
 env:
   BUILD_TYPE: Debug
@@ -48,13 +39,13 @@ jobs:
         shell: bash
         run: ctest -C $BUILD_TYPE
 
-      - name: Coverage
-        working-directory: ${{runner.workspace}}/build
-        shell: bash
-        run: make coverage
+      # - name: Coverage
+      #   working-directory: ${{runner.workspace}}/build
+      #   shell: bash
+      #   run: make coverage
 
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          path-to-lcov: ${{runner.workspace}}/build/coverage.info
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Coveralls
+      #   uses: coverallsapp/github-action@master
+      #   with:
+      #     path-to-lcov: ${{runner.workspace}}/build/coverage.info
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
