@@ -1,12 +1,12 @@
 # Windows debug build and test run
 name: test
 
-on:
-  push:
-    paths-ignore:
-      - "docs/**"
-      - ".github/workflows/docs.yml"
-      - "/*.md"
+# on:
+#   push:
+#     paths-ignore:
+#       - "docs/**"
+#       - ".github/workflows/docs.yml"
+#       - "/*.md"
 
 env:
   BUILD_TYPE: Debug
